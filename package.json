@@ -1,17 +1,13 @@
 {
-  "name": "angular-electron",
-  "version": "1.7.0",
-  "description": "Angular 4 with Electron (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
+  "name": "spaarpot-desktop-client",
+  "version": "0.0.1",
+  "description": "",
+  "homepage": "https://github.com/spaarpot/desktop-client",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "",
+    "email": ""
   },
   "keywords": [
-    "angular",
-    "electron",
-    "typescript",
-    "sass"
   ],
   "main": "main.js",
   "private": true,
@@ -98,5 +94,5 @@
     "webpack": "3.3.0",
     "webpack-dev-server": "2.5.0"
   },
-  "license": "SEE LICENSE IN LICENSE.md"
+  "license": "Apache-2.0"
 }

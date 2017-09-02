@@ -1,66 +1,27 @@
-[![Angular Logo](./logo-angular.jpg)](https://angular.io/) [![Electron Logo](./logo-electron.jpg)](https://electron.atom.io/)
-
-
 [![Travis Build Status][build-badge]][build]
-[![Dependencies Status][dependencyci-badge]][dependencyci]
-[![Make a pull request][prs-badge]][prs]
 [![Apache 2 License][license-badge]][license]
-[![Donate][donate-badge]][donate]
-
-[![Watch on GitHub][github-watch-badge]][github-watch]
-[![Star on GitHub][github-star-badge]][github-star]
-[![Tweet][twitter-badge]][twitter]
 
 # Introduction
 
-Bootstrap and package your project with Angular 4(+) and Electron (Typescript + SASS + Hot Reload) for creating Desktop applications.
-
-Currently runs with:
-
-- Angular v4.3.5
-- Angular-CLI v1.3.1
-- Electron v1.7.5
-- Electron Packager v8.7.2
-
-With this sample, you can :
-
-- Run your app in a local development environment with Electron & Hot reload
-- Run your app in a production environment
-- Package your app into an executable file for Linux, Windows & Mac
-
-## Getting Started
-
-Clone this repository locally :
-
-``` bash
-git clone https://github.com/maximegris/angular-electron.git
-```
-
-Install dependencies with npm :
-
-``` bash
-npm install
-```
-
-There is an issue with `yarn` and `node_modules` that are only used in electron on the backend when the application is built by the packager. Please use `npm` as dependencies manager.
-
-If you want to generate Angular components with Angular-cli , you **MUST** install `@angular/cli` in npm global context.  
-Please follow [Angular-cli documentation](https://github.com/angular/angular-cli) if you had installed a previous version of `angular-cli`.
-
-``` bash
-npm install -g @angular/cli
-```
+Spaarpot, money management made easy!
 
 ## To build for development
+
+Clone the repository, and install dependencies.
+
+``` bash
+git clone https://github.com/spaarpot/desktop-client.git
+npm install
+```
 
 - **in a terminal window** -> npm start  
 - **in another terminal window** -> npm run electron:serve
 
-Voila! You can use your Angular + Electron app in a local development environment with hot reload !
+Voila! You can use your Angular + Electron app in a local development environment with hot reload!
 
 The application code is managed by `main.ts`. In this sample, the app runs with a simple Electron window and "Developer Tools" is open.  
-The Angular component contains an example of Electron and NodeJS native lib import. See [Use NodeJS Native libraries](#use-nodejs-native-libraries) charpter if you want to import other native libraries in your project.  
-You can desactivate "Developer Tools" by commenting `win.webContents.openDevTools();` in `main.ts`.
+The Angular component contains an example of Electron and NodeJS native lib import. See [Use NodeJS Native libraries](#use-nodejs-native-libraries) chapter if you want to import other native libraries in your project.  
+You can deactivate "Developer Tools" by commenting `win.webContents.openDevTools();` in `main.ts`.
 
 ## To build for production
 
@@ -76,9 +37,9 @@ Your built files are in the /dist folder.
 |`npm run start:web`| Execute the app in the brower |
 |`npm run electron:linux`| Builds your application and creates an app consumable on linux system |
 |`npm run electron:windows`| On a Windows OS, builds your application and creates an app consumable in windows 32/64 bit systems |
-|`npm run electron:mac`|  On a MAC OS, builds your application and generates a `.app` file of your application that can be run on Ma |
+|`npm run electron:mac`|  On a MAC OS, builds your application and generates a `.app` file of your application that can be run on Mac |
 
-**Your application is optimised. Only the files of /dist folder are included in the executable.**
+**Your application is optimised. Only the files from the /dist folder are included in the executable.**
 
 ## Use NodeJS Native libraries
 
@@ -109,25 +70,7 @@ You can run tests with the command lines below :
 - **in a terminal window** -> First, start a web server on port 4200 : `npm run start:web`  
 - **in another terminal window** -> Then, launch Protractor (E2E framework): `npm run e2e`
 
-# Contributors 
-
-[<img alt="Maxime GRIS" src="https://avatars2.githubusercontent.com/u/10827551?v=3&s=117" width="117">](https://github.com/maximegris) |
-:---:
-|[Maxime GRIS](https://github.com/maximegris)|
-
-[build-badge]: https://travis-ci.org/maximegris/angular-electron.svg?branch=master
-[build]: https://travis-ci.org/maximegris/angular-electron.svg?branch=master
-[dependencyci-badge]: https://dependencyci.com/github/maximegris/angular-electron/badge
-[dependencyci]: https://dependencyci.com/github/maximegris/angular-electron
-[license-badge]: https://img.shields.io/badge/license-Apache2-blue.svg?style=flat
-[license]: https://github.com/maximegris/angular-electron/blob/master/LICENSE.md
-[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
-[prs]: http://makeapullrequest.com
-[donate-badge]: https://img.shields.io/badge/$-support-green.svg?style=flat-square
-[donate]: https://www.paypal.me/maximegris/10
-[github-watch-badge]: https://img.shields.io/github/watchers/maximegris/angular-electron.svg?style=social
-[github-watch]: https://github.com/maximegris/angular-electron/watchers
-[github-star-badge]: https://img.shields.io/github/stars/maximegris/angular-electron.svg?style=social
-[github-star]: https://github.com/maximegris/angular-electron/stargazers
-[twitter]: https://twitter.com/intent/tweet?text=Check%20out%20angular-electron!%20https://github.com/maximegris/angular-electron%20%F0%9F%91%8D
-[twitter-badge]: https://img.shields.io/twitter/url/https/github.com/maximegris/angular-electron.svg?style=social
+[build-badge]: https://travis-ci.org/spaarpot/desktop-client.svg?branch=master
+[build]:       https://travis-ci.org/spaarpot/desktop-client
+[license-badge]: https://img.shields.io/badge/license-Apache2-blue.svg
+[license]: https://github.com/spaarpot/desktop-client/blob/master/LICENSE.md
