@@ -62,6 +62,21 @@ Notice that all NodeJS v7 native libs are already added in this sample. Feel fre
 Maybe you want to execute the application in the browser (WITHOUT HOT RELOAD ACTUALLY...) ? You can do it with `npm run start:web`.  
 Note that you can't use Electron or NodeJS native libraries in this case. Please check `providers/electron.service.ts` to watch how conditional import of electron/Native libraries is done.
 
+## Execute lint and tests
+
+To lint the project and run the test once:
+
+```bash
+npm run lint
+npm test
+```
+
+To continously watch for changes and re-run tests:
+
+```bash
+npm run testwatch
+```
+
 ## Execute E2E tests
 
 You can find end-to-end tests in /e2e folder.
