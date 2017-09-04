@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
+import { HeaderComponent } from '../header/header.component';
 import { SubmenuComponent } from '../submenu/submenu.component';
 
 describe('HomeComponent', () => {
@@ -9,7 +10,7 @@ describe('HomeComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [HomeComponent, SubmenuComponent]
+            declarations: [HomeComponent, HeaderComponent, SubmenuComponent]
         })
             .compileComponents();
     }));

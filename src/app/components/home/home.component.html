@@ -1,9 +1,6 @@
 <div class="container">
-    <div id="header">
-        Cashflow
-        <a class="header__button">+</a>
-    </div>
-    <div id="subheader">
+    <app-header id="header" (onAdd)="onHeaderAddClicked()"></app-header>
+    <div [ngClass]="{ 'subheader--open': isSidebarOpen }" class="subheader">
         <div>
             Transaction
             <div class="accountname">in Girokonto easybank</div>
@@ -11,5 +8,5 @@
     </div>
     <app-submenu id="submenu"></app-submenu>
     <div id="mainarea">Mainarea</div>
-    <div id="detailsarea">Detailsarea</div>
+    <div [ngClass]="{ 'detailsarea--open': isSidebarOpen }" class="detailsarea">Detailsarea</div>
 </div>

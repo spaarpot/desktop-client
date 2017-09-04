@@ -8,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
     title = `App works !`;
 
+    isSidebarOpen = true;
+
     constructor() { }
 
     ngOnInit() {
     }
 
+    onHeaderAddClicked = () => {
+        this.isSidebarOpen = !this.isSidebarOpen;
+    }
 }
