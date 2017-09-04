@@ -24,7 +24,7 @@ export class SubmenuComponent implements OnInit {
 
     ngOnInit(): void {
         this.selectType('Accounts');
-    };
+    }
 
     onSelectType = (evt, type) => {
         this.selectType(type.title);
