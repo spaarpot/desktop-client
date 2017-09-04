@@ -1,51 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { formatMoney } from '../../utility/utility';
-
-const dummyGetItems = (type) => {
-    if (type.title === 'Accounts') {
-        return [
-            { title: 'Versicherungen', amount: 238.98 },
-            { title: 'Tanken', amount: -47.3 },
-            { title: 'Arbeit Essen' },
-            { title: 'Sport', amount: -19.99 },
-            { title: 'Fortgehen' },
-            { title: 'Videospiele' },
-            { title: 'Motorrad', amount: 89.93 }
-        ];
-    } else {
-        return [
-            { title: 'Sport', amount: -19.99 },
-            { title: 'Fortgehen' }
-        ];
-    }
-}
+import { StorageService } from '../../storage/storage.service';
+import { Account } from '../../storage/model';
 
 @Component({
     selector: 'app-submenu',
     templateUrl: './submenu.component.html',
     styleUrls: ['./submenu.component.scss']
 })
-export class SubmenuComponent {
-    items = [
-        { title: 'Versicherungen', amount: 238.98 },
-        { title: 'Tanken', amount: -47.3 },
-        { title: 'Arbeit Essen' },
-        { title: 'Sport', amount: -19.99 },
-        { title: 'Fortgehen' },
-        { title: 'Videospiele' },
-        { title: 'Motorrad', amount: 89.93 }
-    ]
+export class SubmenuComponent implements OnInit {
+
+    items: Account[];
 
     types = [
         { title: 'Accounts', active: true },
         { title: 'Categories', active: false }
-    ]
+    ];
 
     // TODO: Is this the best way? Seems strange...
-    formatMoney = formatMoney
+    formatMoney = formatMoney;
+
+    constructor(private storageService: StorageService) { }
+
+    ngOnInit(): void {
+        this.selectType('Accounts');
+    };
 
     onSelectType = (evt, type) => {
-        this.types.forEach(t => t.active = t === type);
-        this.items = dummyGetItems(type);
+        this.selectType(type.title);
+    };
+
+    private selectType(typeName: string): void {
+        this.types.forEach(t => t.active = t.title === typeName);
+
+        if (typeName === 'Accounts') {
+            this.items = this.storageService.getAccounts();
+        } else {
+            this.items = this.storageService.getCategories();
+        }
     }
 }

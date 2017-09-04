@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
 import { HeaderComponent } from '../header/header.component';
 import { SubmenuComponent } from '../submenu/submenu.component';
+import { StorageModule } from '../../storage/storage.module';
 
 describe('HomeComponent', () => {
     let component: HomeComponent;
@@ -10,7 +11,8 @@ describe('HomeComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [HomeComponent, HeaderComponent, SubmenuComponent]
+            declarations: [HomeComponent, HeaderComponent, SubmenuComponent],
+            imports: [StorageModule]
         })
             .compileComponents();
     }));

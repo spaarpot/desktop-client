@@ -22,7 +22,7 @@
             border-right: 0;
             border-radius: 2px 0 0 2px;
         }
-        
+
         &:last-child {
             border-left: 0;
             border-radius: 0 2px 2px 0;
@@ -52,7 +52,7 @@
         color: $text-color-dark;
     }
 
-    &__amount {
+    &__balance {
         font-size: 12px;
         font-weight: bold;
         color: $color-white;

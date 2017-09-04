@@ -14,6 +14,7 @@ import { SubmenuComponent } from './components/submenu/submenu.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { ElectronService } from './providers/electron.service';
+import { StorageModule } from './storage/storage.module';
 
 @NgModule({
     declarations: [
@@ -26,9 +27,11 @@ import { ElectronService } from './providers/electron.service';
         BrowserModule,
         FormsModule,
         HttpModule,
-        AppRoutingModule
+        AppRoutingModule,
+        StorageModule
     ],
     providers: [ElectronService],
     bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
