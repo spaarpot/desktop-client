@@ -69,74 +69,10 @@
     border-right: 1px solid $shaded;
 }
 
-.submenu {
-    &__selector {
-        display: flex;
-        margin-bottom: 20px;
-    }
-
-    &__item {
-        width: 50%;
-        border: 1px solid $color-grey-border;
-        text-align: center;
-        font-size: 12px;
-        font-weight: 600;
-        line-height: 30px;
-        color: $text-color-light;
-        cursor: pointer;
-
-        &:first-child {
-            border-right: 0;
-            border-radius: 2px 0 0 2px;
-        }
-        
-        &:last-child {
-            border-left: 0;
-            border-radius: 0 2px 2px 0;
-        }
-
-        &--active {
-            color: $color-white;
-            background-color: $primary-color;
-            border-color: $primary-color;
-        }
-    }
-
-    &__list {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
-
-    &__list-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        height: 30px;
-        font-size: 14px;
-        font-weight: 600;
-        color: $text-color-dark;
-    }
-
-    &__amount {
-        font-size: 12px;
-        font-weight: bold;
-        color: $color-white;
-        padding: 0 8px;
-        line-height: 22px;
-        background-color: $text-color-dark;
-        border-radius: 4px;
-
-        &--negative {
-            background-color: $color-red;
-        }
-    }
-}
-
 #mainaera {
     grid-area: mainarea;
 }
+
 #detailsarea {
     padding: 16px;
     grid-area: detailsarea;

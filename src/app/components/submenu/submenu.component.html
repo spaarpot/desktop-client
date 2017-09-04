@@ -1,0 +1,13 @@
+<div class="submenu__selector">
+    <div *ngFor="let type of types" [ngClass]="{'submenu__type--active': type.active }" (click)="onSelectType($event, type)" class="submenu__type">
+        {{ type.title }}
+    </div>
+</div>
+<ul class="submenu__list">
+    <li *ngFor="let item of items" class="submenu__list-item">
+        {{ item.title }}
+        <span *ngIf="item.amount" [ngClass]="{'submenu__amount--negative': item.amount < 0 }" class="submenu__amount">
+            {{ formatMoney(item.amount) }}
+        </span>
+    </li>
+</ul>
