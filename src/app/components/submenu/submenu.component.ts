@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { formatMoney } from '../../utility/utility';
 import { StorageService } from '../../storage/storage.service';
 import { Account } from '../../storage/model';
 
@@ -16,9 +15,6 @@ export class SubmenuComponent implements OnInit {
         { title: 'Accounts', active: true },
         { title: 'Categories', active: false }
     ];
-
-    // TODO: Is this the best way? Seems strange...
-    formatMoney = formatMoney;
 
     constructor(private storageService: StorageService) { }
 

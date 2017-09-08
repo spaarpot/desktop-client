@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { HeaderComponent } from '../header/header.component';
 import { SubmenuComponent } from '../submenu/submenu.component';
 import { StorageModule } from '../../storage/storage.module';
+import { CurrencyPipe } from '../../pipes/currency.pipe';
 
 describe('HomeComponent', () => {
     let component: HomeComponent;
@@ -11,7 +12,7 @@ describe('HomeComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [HomeComponent, HeaderComponent, SubmenuComponent],
+            declarations: [HomeComponent, HeaderComponent, SubmenuComponent, CurrencyPipe],
             imports: [StorageModule]
         })
             .compileComponents();
