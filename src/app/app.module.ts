@@ -15,13 +15,15 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { ElectronService } from './providers/electron.service';
 import { StorageModule } from './storage/storage.module';
+import { CurrencyPipe } from './pipes/currency.pipe';
 
 @NgModule({
     declarations: [
         AppComponent,
         HeaderComponent,
         HomeComponent,
-        SubmenuComponent
+        SubmenuComponent,
+        CurrencyPipe
     ],
     imports: [
         BrowserModule,
