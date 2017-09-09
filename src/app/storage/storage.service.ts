@@ -8,6 +8,10 @@ export class StorageService {
     private savefileName: string;
     private savefile: Savefile;
 
+    constructor() {
+        this.savefile = new Savefile();
+    }
+
     getAccounts = (): Account[] => {
         return this.savefile.accounts;
     };
@@ -27,6 +31,7 @@ export class StorageService {
                     console.warn('An error occurred opening the file ' + err.message);
                     reject(err);
                 } else {
+                    console.log('Loading file ' + filename);
                     this.savefileName = filename;
                     this.savefile = JSON.parse(data);
                     resolve();

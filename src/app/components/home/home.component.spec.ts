@@ -7,7 +7,7 @@ import { SubmenuComponent } from '../submenu/submenu.component';
 import { StorageModule } from '../../storage/storage.module';
 import { CurrencyPipe } from '../../pipes/currency.pipe';
 
-describe('HomeComponent', () => {
+describe('WelcomeComponent', () => {
     let component: HomeComponent;
     let fixture: ComponentFixture<HomeComponent>;
 

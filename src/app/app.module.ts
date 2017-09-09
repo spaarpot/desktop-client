@@ -17,10 +17,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { ElectronService } from './providers/electron.service';
 import { StorageModule } from './storage/storage.module';
 import { CurrencyPipe } from './pipes/currency.pipe';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 @NgModule({
     declarations: [
         AppComponent,
+        WelcomeComponent,
         HeaderComponent,
         HomeComponent,
         MainareaComponent,
