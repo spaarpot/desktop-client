@@ -16,7 +16,8 @@ export class SubmenuComponent implements OnInit {
         { title: 'Categories', active: false }
     ];
 
-    constructor(private storageService: StorageService) { }
+    constructor(private storageService: StorageService) {}
+
 
     ngOnInit(): void {
         this.selectType('Accounts');
