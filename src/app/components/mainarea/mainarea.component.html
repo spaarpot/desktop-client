@@ -1,0 +1,24 @@
+<table class="transactions">
+    <thead>
+        <tr>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Payee</th>
+            <th>Category</th>
+            <th class="col-main">Notes</th>
+            <th class="col-right">Amount</th>
+            <th class="col-right">Running Balance</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let t of transactions">
+            <td>XXX</td>
+            <td>{{ t.creationDate | date:'shortDate' }}</td>
+            <td>{{ t.payee }}</td>
+            <td>{{ t.category }}</td>
+            <td class="col-main">{{ t.notes }}</td>
+            <td class="col-right">{{ t.amount | appCurrency }}</td>
+            <td class="col-right">XXX</td>
+        </tr>
+    </tbody>
+</table>

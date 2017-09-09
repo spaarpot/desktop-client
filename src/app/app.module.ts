@@ -9,6 +9,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
+import { MainareaComponent } from './components/mainarea/mainarea.component';
 import { SubmenuComponent } from './components/submenu/submenu.component';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +23,7 @@ import { CurrencyPipe } from './pipes/currency.pipe';
         AppComponent,
         HeaderComponent,
         HomeComponent,
+        MainareaComponent,
         SubmenuComponent,
         CurrencyPipe
     ],

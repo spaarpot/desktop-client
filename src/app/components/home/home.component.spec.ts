@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
 import { HeaderComponent } from '../header/header.component';
+import { MainareaComponent } from '../mainarea/mainarea.component';
 import { SubmenuComponent } from '../submenu/submenu.component';
 import { StorageModule } from '../../storage/storage.module';
 import { CurrencyPipe } from '../../pipes/currency.pipe';
@@ -12,7 +13,7 @@ describe('HomeComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [HomeComponent, HeaderComponent, SubmenuComponent, CurrencyPipe],
+            declarations: [HomeComponent, HeaderComponent, MainareaComponent, SubmenuComponent, CurrencyPipe],
             imports: [StorageModule]
         })
             .compileComponents();

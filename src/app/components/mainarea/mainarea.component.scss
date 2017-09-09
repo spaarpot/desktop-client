@@ -1,0 +1,60 @@
+@import '../../_variables';
+
+// Stretch the table across the whole page
+.transactions {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    thead,
+    tbody,
+    tr {
+        width: 100%;
+    }
+
+    th,
+    td {
+        padding: 0 8px;
+        white-space: nowrap;
+        line-height: 32px;
+        text-align: left;
+        color: $text-color-default;
+    }
+
+    th {
+        position: relative;
+        font-size: 12px;
+        font-weight: 600px;
+        background-color: $shaded;
+        border-bottom: 1px solid $color-grey-border;
+    }
+
+    td {
+        font-size: 14px;
+    }
+
+    // Add divider between table header
+    th + th:before {
+        position: absolute;
+        top: 10px;
+        left: -1px;
+        content: "";
+        width: 2px;
+        height: 12px;
+        background-color: $table-divider-color;
+    }
+
+    // Color even rows differently
+    tr:nth-child(even) td {
+        background-color: $detailsbackground;
+    }
+    
+    // Make sure, that the main column takes up as much space as possible
+    .col-main {
+        width: 100%;
+    }
+
+    .col-right {
+        text-align: right;
+    }
+}

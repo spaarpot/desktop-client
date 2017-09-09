@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Account } from './model';
+import { Account, Transaction } from './model';
 
 @Injectable()
 export class StorageService {
@@ -19,6 +19,15 @@ export class StorageService {
         { title: 'Fortgehen' }
     ];
 
+    DUMMY_TRANSACTIONS: Transaction[] = [
+        { creationDate: new Date(), payee: 'BMW Heiligenstadt', category: 'Auto Reperatur', notes: 'Rücklicht', amount: -159.3 },
+        { creationDate: new Date(), payee: 'BMW Heiligenstadt', category: 'Auto Reperatur', notes: 'Rücklicht', amount: -159.3 },
+        { creationDate: new Date(), payee: 'BMW Heiligenstadt', category: 'Auto Reperatur', notes: 'Rücklicht', amount: -159.3 },
+        { creationDate: new Date(), payee: 'BMW Heiligenstadt', category: 'Auto Reperatur', notes: 'Rücklicht', amount: -159.3 },
+        { creationDate: new Date(), payee: 'BMW Heiligenstadt', category: 'Auto Reperatur', notes: 'Rücklicht', amount: -159.3 },
+        { creationDate: new Date(), payee: 'BMW Heiligenstadt', category: 'Auto Reperatur', notes: 'Rücklicht', amount: -159.3 },
+    ];
+
     constructor() {
     }
 
@@ -32,4 +41,7 @@ export class StorageService {
         return this.DUMMY_CATEGORIES;
     }
 
+    getTransactions(): Transaction[] {
+        return this.DUMMY_TRANSACTIONS;
+    }
 }
