@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Account, Transaction, Savefile } from './model';
+import { Account, Savefile, Transaction } from './model';
 import * as fs from 'fs';
 
 @Injectable()
 export class StorageService {
 
-    private savefileName: string;
+    private filename: string;
     private savefile: Savefile;
 
     constructor() {
@@ -16,12 +16,27 @@ export class StorageService {
         return this.savefile.accounts;
     };
 
+    addAccount = (account: Account): Promise<void> => {
+        this.savefile.accounts.push(account);
+        return this.save();
+    };
+
     getCategories = (): Account[] => {
         return this.savefile.categories;
     };
 
+    addCategory = (category: Account): Promise<void> => {
+        this.savefile.categories.push(category);
+        return this.save();
+    };
+
     getTransactions = (): Transaction[] => {
         return this.savefile.transactions;
+    };
+
+    addTransaction = (transaction: Transaction): Promise<void> => {
+        this.savefile.transactions.push(transaction);
+        return this.save();
     };
 
     openFile = (filename: string): Promise<void> => {
@@ -32,8 +47,20 @@ export class StorageService {
                     reject(err);
                 } else {
                     console.log('Loading file ' + filename);
-                    this.savefileName = filename;
+                    this.filename = filename;
                     this.savefile = JSON.parse(data);
+                    resolve();
+                }
+            });
+        });
+    };
+
+    private save = (): Promise<void> => {
+        return new Promise((resolve, reject) => {
+            fs.writeFile(this.filename, JSON.stringify(this.savefile), (err) => {
+                if (err) {
+                    reject(err);
+                } else {
                     resolve();
                 }
             });
