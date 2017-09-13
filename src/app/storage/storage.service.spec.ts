@@ -12,9 +12,4 @@ describe('DatastoreService', () => {
     it('should be created', inject([StorageService], (service: StorageService) => {
         expect(service).toBeTruthy();
     }));
-
-    it('should return a nonempty array of accounts', inject([StorageService], (service: StorageService) => {
-        const accounts = service.getAccounts();
-        expect(accounts.length).toBeGreaterThan(1);
-    }));
 });
