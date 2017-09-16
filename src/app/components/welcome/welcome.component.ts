@@ -21,7 +21,19 @@ export class WelcomeComponent {
                 private storageService: StorageService,
                 private router: Router) { }
 
-    openFile = () => {
+    newFile = (): void => {
+        const filename = this.electronService.remote.dialog.showSaveDialog({ filters: FILEFILTERS });
+        if (filename === undefined) {
+            // dialog got canceled
+            return;
+        }
+
+        this.storageService.newFile(filename)
+            .then(() => this.router.navigate(['home']))
+            .catch((reason) => console.warn('File open failed', reason));
+    };
+
+    openFile = (): void => {
         const filenames = this.electronService.remote.dialog.showOpenDialog({ filters: FILEFILTERS });
         if (filenames === undefined) {
             // dialog got canceled
@@ -29,9 +41,7 @@ export class WelcomeComponent {
         }
 
         this.storageService.openFile(filenames[0])
-            .then(() => {
-                this.router.navigate(['home']);
-            })
+            .then(() => this.router.navigate(['home']))
             .catch((reason) => console.warn('File open failed', reason));
     };
 }

@@ -16,7 +16,7 @@ export class StorageService {
         return this.savefile.accounts;
     };
 
-    addAccount = (account: Account): Promise<void> => {
+    createAccount = (account: Account): Promise<void> => {
         this.savefile.accounts.push(account);
         return this.save();
     };
@@ -25,7 +25,7 @@ export class StorageService {
         return this.savefile.categories;
     };
 
-    addCategory = (category: Account): Promise<void> => {
+    createCategory = (category: Account): Promise<void> => {
         this.savefile.categories.push(category);
         return this.save();
     };
@@ -34,9 +34,21 @@ export class StorageService {
         return this.savefile.transactions;
     };
 
-    addTransaction = (transaction: Transaction): Promise<void> => {
+    createTransaction = (transaction: Transaction): Promise<void> => {
         this.savefile.transactions.push(transaction);
         return this.save();
+    };
+
+    newFile = (filename: string): Promise<void> => {
+        return new Promise((resolve, reject) => {
+            fs.writeFile(filename, JSON.stringify(new Savefile()), (err) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve();
+                }
+            });
+        });
     };
 
     openFile = (filename: string): Promise<void> => {
