@@ -40,6 +40,7 @@
     "@angular/platform-browser": "4.3.5",
     "@angular/platform-browser-dynamic": "4.3.5",
     "@angular/router": "4.3.5",
+    "@ngrx/store": "4.0.3",
     "core-js": "2.4.1",
     "enhanced-resolve": "3.3.0",
     "opensans-npm-webfont": "^1.0.0",
