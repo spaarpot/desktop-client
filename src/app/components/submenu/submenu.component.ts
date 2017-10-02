@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { StorageService } from '../../storage/storage.service';
 import { Account } from '../../storage/model';
+import { Observable } from 'rxjs/Observable';
+import { AppState } from '../../store/model';
+import { Store } from '@ngrx/store';
+import { selectAccounts } from '../../store/account.actions';
 
 @Component({
     selector: 'app-submenu',
@@ -9,14 +12,16 @@ import { Account } from '../../storage/model';
 })
 export class SubmenuComponent implements OnInit {
 
-    items: Account[];
+    items: Observable<Array<Account>>;
 
     types = [
         { title: 'Accounts', active: true },
         { title: 'Categories', active: false }
     ];
 
-    constructor(private storageService: StorageService) {}
+    constructor(private store: Store<AppState>) {
+        this.items = store.select(selectAccounts);
+    }
 
 
     ngOnInit(): void {
@@ -28,12 +33,12 @@ export class SubmenuComponent implements OnInit {
     };
 
     private selectType(typeName: string): void {
-        this.types.forEach(t => t.active = t.title === typeName);
-
-        if (typeName === 'Accounts') {
-            this.items = this.storageService.getAccounts();
-        } else {
-            this.items = this.storageService.getCategories();
-        }
+        // this.types.forEach(t => t.active = t.title === typeName);
+        //
+        // if (typeName === 'Accounts') {
+        //     this.items = this.storageService.getAccounts();
+        // } else {
+        //     this.items = this.storageService.getCategories();
+        // }
     }
 }

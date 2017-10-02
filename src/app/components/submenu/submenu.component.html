@@ -4,7 +4,7 @@
     </div>
 </div>
 <ul class="submenu__list">
-    <li *ngFor="let item of items" class="submenu__list-item">
+    <li *ngFor="let item of items | async" class="submenu__list-item">
         {{ item.title }}
         <span *ngIf="item.balance" [ngClass]="{'submenu__balance--negative': item.balance < 0 }" class="submenu__balance">
             {{ item.balance | appCurrency }}
