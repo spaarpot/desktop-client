@@ -1,5 +1,5 @@
 export interface AppState {
-    accounts: Array<Account>;
+    accounts: Account[];
 }
 
 export class Account {

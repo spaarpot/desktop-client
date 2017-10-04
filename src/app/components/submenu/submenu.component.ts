@@ -12,7 +12,7 @@ import { selectAccounts } from '../../store/account.actions';
 })
 export class SubmenuComponent implements OnInit {
 
-    items: Observable<Array<Account>>;
+    items: Observable<Account[]>;
 
     types = [
         { title: 'Accounts', active: true },
