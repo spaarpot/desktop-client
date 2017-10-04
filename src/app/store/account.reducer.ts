@@ -1,4 +1,4 @@
-import { AccountActions, ActionsTypes } from './account.actions';
+import { ADD, AccountActions, ActionsTypes } from './account.actions';
 import { Account } from './model';
 
 
@@ -9,7 +9,7 @@ const initialState: Account[] = [
 
 export function accountReducer(state: Account[] = initialState, action: ActionsTypes): Account[] {
     switch (action.type) {
-        case AccountActions.ADD:
+        case ADD:
             return [...state, action.payload];
         default:
             return state;

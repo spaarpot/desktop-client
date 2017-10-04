@@ -2,7 +2,7 @@ import { Action } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { AppState, Category } from './model';
 
-const ADD = '[Category] Add';
+export const ADD = '[Category] Add';
 
 export class AddCategoryAction implements Action {
     readonly type = ADD;
