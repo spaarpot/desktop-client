@@ -2,7 +2,7 @@ import { Action } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { Account, AppState } from './model';
 
-const ADD = '[Account] Add';
+export const ADD = '[Account] Add';
 
 export class AddAccountAction implements Action {
     readonly type = ADD;
