@@ -22,4 +22,3 @@ export class CategoryActions {
 }
 
 export const selectCategory = (state: AppState) => state.categories;
-

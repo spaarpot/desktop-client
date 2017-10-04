@@ -8,15 +8,12 @@ const FILEFILTERS = [{
     extensions: ['nvlps']
 }];
 
-
 @Component({
     selector: 'app-welcome',
     templateUrl: './welcome.component.html',
     styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent {
-
-
     constructor(private electronService: ElectronService,
                 private storageService: StorageService,
                 private router: Router) { }
