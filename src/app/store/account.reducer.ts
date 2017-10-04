@@ -3,13 +3,13 @@ import { Account } from './model';
 
 
 const initialState: Account[] = [
-    new Account('Test1', 100),
-    new Account('Test2', 200)
+    new Account('Test Account 1', 100),
+    new Account('Test Account 2', 200)
 ];
 
-export function accountReducer(state: Account[] = initialState, action: ActionsTypes): Array<Account> {
+export function accountReducer(state: Account[] = initialState, action: ActionsTypes): Account[] {
     switch (action.type) {
-        case AccountActions.ADD_ACCOUNT:
+        case AccountActions.ADD:
             return [...state, action.payload];
         default:
             return state;
