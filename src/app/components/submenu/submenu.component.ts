@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { AppState } from '../../store/model';
 import { Store } from '@ngrx/store';
 import { selectAccounts } from '../../store/account.actions';
+import { selectCategory } from '../../store/category.actions';
 
 @Component({
     selector: 'app-submenu',
@@ -15,12 +16,11 @@ export class SubmenuComponent implements OnInit {
     items: Observable<Account[]>;
 
     types = [
-        { title: 'Accounts', active: true },
-        { title: 'Categories', active: false }
+        { title: 'Accounts', active: true, storeSelector: selectAccounts },
+        { title: 'Categories', active: false, storeSelector: selectCategory }
     ];
 
     constructor(private store: Store<AppState>) {
-        this.items = store.select(selectAccounts);
     }
 
 
@@ -33,12 +33,7 @@ export class SubmenuComponent implements OnInit {
     };
 
     private selectType(typeName: string): void {
-        // this.types.forEach(t => t.active = t.title === typeName);
-        //
-        // if (typeName === 'Accounts') {
-        //     this.items = this.storageService.getAccounts();
-        // } else {
-        //     this.items = this.storageService.getCategories();
-        // }
+        this.types.forEach(t => t.active = t.title === typeName);
+        this.items = this.store.select(this.types.find(t => t.title === typeName).storeSelector);
     }
 }
