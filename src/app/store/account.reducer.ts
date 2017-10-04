@@ -1,7 +1,6 @@
 import { ADD, AccountActions, ActionsTypes } from './account.actions';
 import { Account } from './model';
 
-
 const initialState: Account[] = [
     new Account('Test Account 1', 100),
     new Account('Test Account 2', 200)
