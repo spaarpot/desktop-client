@@ -2,9 +2,10 @@ import { Action } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { Account, AppState } from './model';
 
+const ADD = '[Account] Add';
 
 export class AddAccountAction implements Action {
-    readonly type = AccountActions.ADD;
+    readonly type = ADD;
 
     constructor(public payload: Account) {}
 }
@@ -13,11 +14,8 @@ export type ActionsTypes = AddAccountAction;
 //    | AddAccountAction // TODO anpassen
 //    | AddAccountAction; // TODO anpassen
 
-
 @Injectable()
 export class AccountActions {
-    static ADD = '[Account] Add';
-
     addAccount(name: string): AddAccountAction {
         return new AddAccountAction(new Account(name));
     }
