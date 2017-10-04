@@ -24,4 +24,4 @@ export class AccountActions {
 }
 
 export const selectAccounts = (state: AppState) => state.accounts;
-// export const selectAccountsCount =  createSelector(selectAccounts, (accounts: Array<Account>) => accounts.length);
+// export const selectAccountsCount =  createSelector(selectAccounts, (accounts: Account[]) => accounts.length);
