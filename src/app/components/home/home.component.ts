@@ -18,4 +18,9 @@ export class HomeComponent implements OnInit {
     onHeaderAddClicked = () => {
         this.isSidebarOpen = !this.isSidebarOpen;
     }
+
+    onSidebarItemSelected = ({ type, item }: { type: string, item: Account }) => {
+        console.log(type);
+        console.log(item);
+    }
 }

@@ -1,6 +1,7 @@
 export class Account {
     title: string;
     balance?: number;
+    isSelected?: boolean;
 }
 
 export class Transaction {

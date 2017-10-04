@@ -3,11 +3,21 @@
         {{ type.title }}
     </div>
 </div>
-<ul class="submenu__list">
-    <li *ngFor="let item of items" class="submenu__list-item">
+<ul *ngIf="items.length > 0 || newItem != null; else elseBlock" class="submenu__list">
+    <li *ngFor="let item of items" (click)="onSelectItem($event, item)" class="submenu__list-item" [ngClass]="{ 'selected': item.isSelected }">
         {{ item.title }}
         <span *ngIf="item.balance" [ngClass]="{'submenu__balance--negative': item.balance < 0 }" class="submenu__balance">
             {{ item.balance | appCurrency }}
         </span>
     </li>
+    <li *ngIf="newItem != null">
+        <input appAutoFocus [(ngModel)]="newItem.title" (keypress)="onEnterCheck($event)" (blur)="onSaveNewItem(newItem)" type="text" name="newItemTitle" class="submenu__new-input" placeholder="{{ translations.new }}"/>
+    </li>
+    {{ newItem | json }}
 </ul>
+<ng-template #elseBlock>
+    <div class="submenu__empty">
+        {{ translations.empty }}
+    </div>
+</ng-template>
+<a (click)="onAddItem($event)" class="submenu__add-button">+</a>

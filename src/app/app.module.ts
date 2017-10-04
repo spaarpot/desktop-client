@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ElectronService } from './providers/electron.service';
 import { StorageModule } from './storage/storage.module';
 import { CurrencyPipe } from './pipes/currency.pipe';
+import { AutoFocusDirective } from './directives/autofocus.directive';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { CurrencyPipe } from './pipes/currency.pipe';
         HomeComponent,
         MainareaComponent,
         SubmenuComponent,
-        CurrencyPipe
+        CurrencyPipe,
+        AutoFocusDirective
     ],
     imports: [
         BrowserModule,

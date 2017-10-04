@@ -15,8 +15,6 @@ export class StorageService {
     ];
 
     DUMMY_CATEGORIES: Account[] = [
-        { title: 'Sport', balance: -19.99 },
-        { title: 'Fortgehen' }
     ];
 
     DUMMY_TRANSACTIONS: Transaction[] = [

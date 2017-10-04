@@ -6,7 +6,7 @@
             <div class="accountname">in Girokonto easybank</div>
         </div>
     </div>
-    <app-submenu id="submenu"></app-submenu>
+    <app-submenu id="submenu" (onSelect)="onSidebarItemSelected($event)"></app-submenu>
     <app-mainarea id="mainarea"></app-mainarea>
     <div [ngClass]="{ 'detailsarea--open': isSidebarOpen }" class="detailsarea">Detailsarea</div>
 </div>
