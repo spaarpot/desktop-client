@@ -3,7 +3,7 @@ import { Account } from '../../storage/model';
 import { Observable } from 'rxjs/Observable';
 import { AppState } from '../../store/model';
 import { Store } from '@ngrx/store';
-import { selectAccounts } from '../../store/account.actions';
+import { selectAccounts } from '../../actions/account.actions';
 import { selectCategory } from '../../store/category.actions';
 
 @Component({
@@ -20,9 +20,7 @@ export class SubmenuComponent implements OnInit {
         { title: 'Categories', active: false, storeSelector: selectCategory }
     ];
 
-    constructor(private store: Store<AppState>) {
-    }
-
+    constructor(private store: Store<AppState>) {}
 
     ngOnInit(): void {
         this.selectType('Accounts');

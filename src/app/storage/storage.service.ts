@@ -51,7 +51,7 @@ export class StorageService {
         });
     };
 
-    openFile = (filename: string): Promise<void> => {
+    openFile = (filename: string): Promise<any> => {
         return new Promise((resolve, reject) => {
             fs.readFile(filename, 'utf8', (err, data) => {
                 if (err) {
@@ -61,7 +61,7 @@ export class StorageService {
                     console.log('Loading file ' + filename);
                     this.filename = filename;
                     this.savefile = JSON.parse(data);
-                    resolve();
+                    resolve(this.savefile.accounts);
                 }
             });
         });

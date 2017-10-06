@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+
 import { ElectronService } from '../../providers/electron.service';
 import { StorageService } from '../../storage/storage.service';
-import { Router } from '@angular/router';
+import { AppState } from '../../store/model';
+import * as account from '../../actions/account.actions';
 
 const FILEFILTERS = [{
     name: 'nvlps save',
@@ -16,7 +20,8 @@ const FILEFILTERS = [{
 export class WelcomeComponent {
     constructor(private electronService: ElectronService,
                 private storageService: StorageService,
-                private router: Router) { }
+                private router: Router,
+                private store: Store<AppState>) { }
 
     newFile = (): void => {
         const filename = this.electronService.remote.dialog.showSaveDialog({ filters: FILEFILTERS });
@@ -38,7 +43,10 @@ export class WelcomeComponent {
         }
 
         this.storageService.openFile(filenames[0])
-            .then(() => this.router.navigate(['home']))
+            .then((accounts) => {
+                this.store.dispatch(new account.LoadAction(accounts));
+                this.router.navigate(['home']);
+            })
             .catch((reason) => console.warn('File open failed', reason));
     };
 }
