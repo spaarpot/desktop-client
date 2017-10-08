@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Account } from '../../storage/model';
 import { Observable } from 'rxjs/Observable';
-import { AppState } from '../../store/model';
+import { Account, AppState } from '../../store/model';
 import { Store } from '@ngrx/store';
 import { selectAccounts } from '../../actions/account.actions';
 import { selectCategory } from '../../store/category.actions';

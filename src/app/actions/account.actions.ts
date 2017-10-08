@@ -1,5 +1,4 @@
 import { Action } from '@ngrx/store';
-import { Injectable } from '@angular/core';
 import { Account, AppState } from '../store/model';
 
 export const ADD = '[Account] Add';
