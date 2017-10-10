@@ -1,8 +1,13 @@
 import { generateUuid } from '../utility/uuid';
 
 export interface AppState {
+    metadata: Metadata;
     accounts: Account[];
     categories: Category[];
+}
+
+export class Metadata {
+    filename?: string;
 }
 
 export class Account {
