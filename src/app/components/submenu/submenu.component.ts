@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Account, AppState } from '../../store/model';
 import { Store } from '@ngrx/store';
 import { selectAccounts } from '../../actions/account.actions';
-import { selectCategory } from '../../store/category.actions';
+import { selectCategory } from '../../actions/category.actions';
 
 @Component({
     selector: 'app-submenu',

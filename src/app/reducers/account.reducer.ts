@@ -8,8 +8,6 @@ export function accountReducer(state: Account[] = initialState, action: account.
         case account.ADD:
             return state; // TODO
             // return [...state, action.payload];
-        case account.LOAD:
-            return [...state, ...action.payload];
         default:
             return state;
     }
