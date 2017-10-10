@@ -15,7 +15,7 @@ export class Account {
     title: string;
     balance?: number;
 
-    constructor(title: string, balance = 0) {
+    constructor(title: string = '', balance = 0) {
         this.id = generateUuid();
         this.title = title;
         this.balance = balance;

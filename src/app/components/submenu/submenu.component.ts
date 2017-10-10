@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Account, AppState } from '../../store/model';
 import { Store } from '@ngrx/store';
-import { selectAccounts } from '../../actions/account.actions';
+import * as account from '../../actions/account.actions';
 import { selectCategory } from '../../store/category.actions';
 
 @Component({
@@ -18,7 +18,7 @@ export class SubmenuComponent implements OnInit {
     newItem: Account = null;
 
     types = [
-        { title: 'Accounts', active: true, storeSelector: selectAccounts },
+        { title: 'Accounts', active: true, storeSelector: account.selectAccounts },
         { title: 'Categories', active: false, storeSelector: selectCategory }
     ];
 
@@ -50,7 +50,7 @@ export class SubmenuComponent implements OnInit {
     };
 
     onSelectItem = (evt, item) => {
-        this.items.forEach(it => { it.isSelected = it === item; });
+        // this.items.forEach(it => { it.isSelected = it === item; });
         this.onSelect.emit({ type: this.currentType, item });
     };
 
@@ -66,26 +66,17 @@ export class SubmenuComponent implements OnInit {
     };
 
     onSaveNewItem = (item: Account) => {
+        this.store.dispatch(new account.AddAction(item));
         // Add to store and reset new item
-        this.items.push(item); // DUMMY
         this.newItem = null;
     };
 
     private selectType(typeName: string): void {
         this.types.forEach(t => t.active = t.title === typeName);
-<<<<<<< HEAD
-
-        if (typeName === 'Accounts') {
-            this.items = this.storageService.getAccounts();
-        } else {
-            this.items = this.storageService.getCategories();
-        }
+        this.items = this.store.select(this.types.find(t => t.title === typeName).storeSelector);
 
         if (this.avbailableTranslations.hasOwnProperty(typeName)) {
             this.translations = this.avbailableTranslations[typeName];
         }
-=======
-        this.items = this.store.select(this.types.find(t => t.title === typeName).storeSelector);
->>>>>>> feature/storage
     }
 }

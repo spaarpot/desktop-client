@@ -3,7 +3,7 @@
         {{ type.title }}
     </div>
 </div>
-<ul *ngIf="items.length > 0 || newItem != null; else elseBlock" class="submenu__list">
+<ul *ngIf="(items | async)?.length > 0 || newItem != null; else elseBlock" class="submenu__list">
     <li *ngFor="let item of items | async" (click)="onSelectItem($event, item)" class="submenu__list-item" [ngClass]="{ 'selected': item.isSelected }">
         {{ item.title }}
         <span *ngIf="item.balance" [ngClass]="{'submenu__balance--negative': item.balance < 0 }" class="submenu__balance">
