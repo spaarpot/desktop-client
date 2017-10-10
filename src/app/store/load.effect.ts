@@ -2,14 +2,14 @@ import { Actions, Effect } from '@ngrx/effects';
 
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
-import * as fs from 'fs';
 import { AppState } from './model';
 import { ElectronService } from '../providers/electron.service';
 import { Router } from '@angular/router';
 import * as fromAppActions from '../actions/application.actions';
-
+import { readAppState, writeAppState } from './fileaccess';
 
 const initialState: AppState = {
+    metadata: {},
     accounts: [],
     categories: []
 };
@@ -45,15 +45,6 @@ export class LoadEffect {
         .ofType(fromAppActions.FILE_LOADED)
         .do(() => this.router.navigate(['home']));
 
-    // TODO Move this to some service encapsulating the fileaccess
-    private readFile = Observable.bindNodeCallback(
-        (filename: string, encoding: string, callback: (err: Error, data: string) => void) => fs.readFile(filename, encoding, callback)
-    );
-
-    private writeFile = Observable.bindNodeCallback(
-        (filename: string, data: any, callback: (err: Error, data?: any) => void) => fs.writeFile(filename, data, callback)
-    );
-
     constructor(private electronService: ElectronService,
                 private actions$: Actions,
                 private router: Router) {}
@@ -65,10 +56,10 @@ export class LoadEffect {
             return;
         }
 
-        return this.writeFile(filename, JSON.stringify(initialState))
-            .switchMap(() =>
-                this.readFile(filename, 'UTF-8').map(data => JSON.parse(data))
-            );
+        const state = Object.assign({}, initialState);
+        initialState.metadata.filename = filename;
+        return writeAppState(initialState)
+            .switchMap(() => readAppState(filename));
     };
 
     private openFile = (): Observable<AppState> => {
@@ -78,7 +69,6 @@ export class LoadEffect {
             return;
         }
 
-        return this.readFile(filenames[0], 'UTF-8')
-            .map(data => JSON.parse(data));
+        return readAppState(filenames[0]);
     };
 }
