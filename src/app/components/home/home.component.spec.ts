@@ -4,8 +4,9 @@ import { HomeComponent } from './home.component';
 import { HeaderComponent } from '../header/header.component';
 import { MainareaComponent } from '../mainarea/mainarea.component';
 import { SubmenuComponent } from '../submenu/submenu.component';
-import { StorageModule } from '../../storage/storage.module';
+import { StoreModule } from '@ngrx/store';
 import { CurrencyPipe } from '../../pipes/currency.pipe';
+import { reducers } from '../../reducers';
 
 describe('HomeComponent', () => {
     let component: HomeComponent;
@@ -14,9 +15,9 @@ describe('HomeComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [HomeComponent, HeaderComponent, MainareaComponent, SubmenuComponent, CurrencyPipe],
-            imports: [StorageModule]
+            imports: [StoreModule.forRoot(reducers)]
         })
-            .compileComponents();
+        .compileComponents();
     }));
 
     beforeEach(() => {

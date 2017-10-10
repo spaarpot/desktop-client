@@ -1,6 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { StorageService } from '../../storage/storage.service';
-import { Account } from '../../storage/model';
+import { Observable } from 'rxjs/Observable';
+import { Account, AppState } from '../../store/model';
+import { Store } from '@ngrx/store';
+import { selectAccounts } from '../../actions/account.actions';
+import { selectCategory } from '../../store/category.actions';
 
 @Component({
     selector: 'app-submenu',
@@ -10,13 +13,13 @@ import { Account } from '../../storage/model';
 export class SubmenuComponent implements OnInit {
     @Output() onSelect: EventEmitter<any> = new EventEmitter();
 
-    items: Account[];
+    items: Observable<Account[]>;
 
     newItem: Account = null;
 
     types = [
-        { title: 'Accounts', active: true },
-        { title: 'Categories', active: false }
+        { title: 'Accounts', active: true, storeSelector: selectAccounts },
+        { title: 'Categories', active: false, storeSelector: selectCategory }
     ];
 
     currentType = {};
@@ -34,7 +37,7 @@ export class SubmenuComponent implements OnInit {
 
     translations = {};
 
-    constructor(private storageService: StorageService) { }
+    constructor(private store: Store<AppState>) {}
 
     ngOnInit(): void {
         this.selectType('Accounts');
@@ -70,6 +73,7 @@ export class SubmenuComponent implements OnInit {
 
     private selectType(typeName: string): void {
         this.types.forEach(t => t.active = t.title === typeName);
+<<<<<<< HEAD
 
         if (typeName === 'Accounts') {
             this.items = this.storageService.getAccounts();
@@ -80,5 +84,8 @@ export class SubmenuComponent implements OnInit {
         if (this.avbailableTranslations.hasOwnProperty(typeName)) {
             this.translations = this.avbailableTranslations[typeName];
         }
+=======
+        this.items = this.store.select(this.types.find(t => t.title === typeName).storeSelector);
+>>>>>>> feature/storage
     }
 }

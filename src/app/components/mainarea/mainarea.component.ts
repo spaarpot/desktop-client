@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { StorageService } from '../../storage/storage.service';
-import { Transaction } from '../../storage/model';
 
 @Component({
     selector: 'app-mainarea',
@@ -9,11 +7,11 @@ import { Transaction } from '../../storage/model';
 })
 export class MainareaComponent implements OnInit {
 
-    transactions: Transaction[];
+    transactions: any[]; // TODO model
 
-    constructor(private storageService: StorageService) { }
+    constructor() { }
 
     ngOnInit(): void {
-        this.transactions = this.storageService.getTransactions();
+        this.transactions = []; // TODO this.storageService.getTransactions();
     }
 }

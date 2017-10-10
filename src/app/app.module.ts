@@ -15,13 +15,14 @@ import { SubmenuComponent } from './components/submenu/submenu.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { ElectronService } from './providers/electron.service';
-import { StorageModule } from './storage/storage.module';
 import { CurrencyPipe } from './pipes/currency.pipe';
 import { AutoFocusDirective } from './directives/autofocus.directive';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 @NgModule({
     declarations: [
         AppComponent,
+        WelcomeComponent,
         HeaderComponent,
         HomeComponent,
         MainareaComponent,
@@ -33,8 +34,7 @@ import { AutoFocusDirective } from './directives/autofocus.directive';
         BrowserModule,
         FormsModule,
         HttpModule,
-        AppRoutingModule,
-        StorageModule
+        AppRoutingModule
     ],
     providers: [ElectronService],
     bootstrap: [AppComponent]
