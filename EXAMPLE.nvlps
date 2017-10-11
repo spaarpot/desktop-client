@@ -1,1 +1,1 @@
-{"metadata":{},"accounts":[{"id":"5155f410-a07e-b395-5814-ad8260ecfc62","title":"Test Account 1x","balance":1010},{"id":"ec9329d3-69f7-2eb8-fcce-42039b90b44c","title":"Test Account 2x","balance":200}],"categories":[]}
+{"metadata":{},"accounts":[{"id":"5155f410-a07e-b395-5814-ad8260ecfc62","title":"Test Account 1x","balance":1010},{"id":"ec9329d3-69f7-2eb8-fcce-42039b90b44c","title":"Test Account 2x","balance":200}],"categories":[{"id":"ec9329d3-69f7-2998-fcce-42039b90b44c","title":"Test Category","balance":100}]}

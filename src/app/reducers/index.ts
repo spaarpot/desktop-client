@@ -1,6 +1,6 @@
 import { ActionReducerMap, } from '@ngrx/store';
 import * as fromAccount from './account.reducer';
-import * as fromCategory from '../store/category.reducer';
+import * as fromCategory from './category.reducer';
 import { AppState } from '../store/model';
 
 
