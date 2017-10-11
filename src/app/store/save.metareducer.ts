@@ -14,6 +14,5 @@ export function saveReducer(reducer: ActionReducer<any>): ActionReducer<any> {
             writeAppState(newState);
             return newState;
         }
-
     };
 }

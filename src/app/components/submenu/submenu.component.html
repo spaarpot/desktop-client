@@ -3,17 +3,16 @@
         {{ type.title }}
     </div>
 </div>
-<ul *ngIf="(items | async)?.length > 0 || newItem != null; else elseBlock" class="submenu__list">
-    <li *ngFor="let item of items | async" (click)="onSelectItem($event, item)" class="submenu__list-item" [ngClass]="{ 'selected': item.isSelected }">
-        {{ item.title }}
-        <span *ngIf="item.balance" [ngClass]="{'submenu__balance--negative': item.balance < 0 }" class="submenu__balance">
-            {{ item.balance | appCurrency }}
+<ul *ngIf="items.length > 0 || newItem != null; else elseBlock" class="submenu__list">
+    <li *ngFor="let item of items" (click)="onSelectItem($event, item)" class="submenu__list-item" [ngClass]="{ 'selected': item.isSelected }">
+        {{ item.item.title }}
+        <span *ngIf="item.item.balance" [ngClass]="{'submenu__balance--negative': item.item.balance < 0 }" class="submenu__balance">
+            {{ item.item.balance | appCurrency }}
         </span>
     </li>
     <li *ngIf="newItem != null">
         <input appAutoFocus [(ngModel)]="newItem.title" (keypress)="onEnterCheck($event)" (blur)="onSaveNewItem(newItem)" type="text" name="newItemTitle" class="submenu__new-input" placeholder="{{ translations.new }}"/>
     </li>
-    {{ newItem | json }}
 </ul>
 <ng-template #elseBlock>
     <div class="submenu__empty">
