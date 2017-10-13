@@ -11,7 +11,7 @@ export function saveReducer(reducer: ActionReducer<any>): ActionReducer<any> {
             return reducer((action as FileLoaded).payload, action);
         } else {
             const newState = reducer(state, action);
-            writeAppState(newState);
+            writeAppState(newState).subscribe();
             return newState;
         }
     };
