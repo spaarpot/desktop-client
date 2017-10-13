@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Account, AppState, Category } from '../../store/model';
 import { Store } from '@ngrx/store';
 import * as account from '../../actions/account.actions';
-import * as category from '../../store/category.actions';
+import * as category from '../../actions/category.actions';
 
 @Component({
     selector: 'app-home',

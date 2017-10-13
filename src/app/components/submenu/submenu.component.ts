@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Account, AppState, Category, Classification, ClassificationType, SubmenuItem } from '../../store/model';
 import { Store } from '@ngrx/store';
 import * as account from '../../actions/account.actions';
-import * as category from '../../store/category.actions';
+import * as category from '../../actions/category.actions';
 
 @Component({
     selector: 'app-submenu',
@@ -32,7 +32,7 @@ export class SubmenuComponent implements OnInit, OnChanges {
             title: 'Categories',
             active: false,
             get: (comp: SubmenuComponent) => comp.categories,
-            addAction: (payload) => new category.AddCategoryAction(payload)
+            addAction: (payload) => new category.AddAction(payload)
         }
     ];
 
