@@ -36,7 +36,8 @@
     }
 
     &__list {
-        margin: 0;
+        flex-grow: 1;
+        margin: 0 -8px;
         padding: 0;
         list-style: none;
     }
@@ -46,10 +47,20 @@
         justify-content: space-between;
         align-items: center;
 
+        border-radius: 2px;
+        padding: 0 8px;
         height: 30px;
         font-size: 14px;
         font-weight: 600;
         color: $text-color-dark;
+        cursor: pointer;
+        transition: all 0.15s ease-in-out;
+
+        &.selected,
+        &:hover {
+            background-color: $table-selected-color;
+            color: $color-white;
+        }
     }
 
     &__balance {
@@ -63,6 +74,46 @@
 
         &--negative {
             background-color: $color-red;
+        }
+    }
+
+    &__empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 18px;
+        color: $text-color-muted;
+    }
+
+    &__new-input {
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 0 8px;
+        width: 100%;
+        height: 30px;
+
+        font-size: 14px;
+        color: $text-color-dark;
+    }
+
+    &__add-button {
+        width: 20px;
+        height: 16px;
+        border: 1px solid $shaded;
+        line-height: 16px;
+        border-radius: 2px;
+        text-align: center;
+        transition: background-color 0.15s ease-in-out;
+        cursor: pointer;
+        user-select: none;
+
+        &:hover {
+            background-color: $color-white;
         }
     }
 }

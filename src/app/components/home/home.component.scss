@@ -37,12 +37,12 @@ $detail-sidebar-width: 300px;
     padding: 0;
     width: 0;
     box-sizing: border-box;
-    
+
     background-color: $secondary-color;
     color: $headertext-color;
     font-size: 14px;
     font-weight: 600;
-    
+
     &--open {
         padding: 0 16px;
         width: $detail-sidebar-width;
@@ -57,6 +57,8 @@ $detail-sidebar-width: 300px;
 }
 
 #submenu {
+    display: flex;
+    flex-direction: column;
     padding: 16px;
     grid-area: submenu;
     background-color: $detailsbackground;
@@ -75,7 +77,7 @@ $detail-sidebar-width: 300px;
     border-left: 1px solid $shaded;
     width: 0;
     box-sizing: border-box;
-    
+
     &--open {
         width: $detail-sidebar-width;
         padding: 16px;
