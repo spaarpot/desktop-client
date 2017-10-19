@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home.component';
 import { HeaderComponent } from '../header/header.component';
@@ -15,7 +16,7 @@ describe('HomeComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [HomeComponent, HeaderComponent, MainareaComponent, SubmenuComponent, CurrencyPipe],
-            imports: [StoreModule.forRoot(reducers)]
+            imports: [StoreModule.forRoot(reducers), FormsModule]
         })
         .compileComponents();
     }));
@@ -29,12 +30,6 @@ describe('HomeComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
-
-    it(`should have as title 'App works !'`, async(() => {
-        fixture = TestBed.createComponent(HomeComponent);
-        const app = fixture.debugElement.componentInstance;
-        expect(app.title).toEqual('App works !');
-    }));
 
     it('should render title in a #header element', async(() => {
         fixture = TestBed.createComponent(HomeComponent);
