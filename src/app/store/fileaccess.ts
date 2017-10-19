@@ -22,8 +22,8 @@ export const readAppState = (filename: string): Observable<AppState> => {
 export const writeAppState = (state: AppState): Observable<AppState> => {
     const filename = state.metadata.filename;
 
-    const stateCopy = Object.assign({}, state);
+    const stateCopy = JSON.parse(JSON.stringify(state)); // get a deep copy of the state.
     stateCopy.metadata.filename = null;
 
-    return writeFile(filename, JSON.stringify(stateCopy));
+    return writeFile(filename, JSON.stringify(stateCopy) + '\n');
 };

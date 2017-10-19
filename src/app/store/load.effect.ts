@@ -52,7 +52,7 @@ export class LoadEffect {
     private newFile = (): Observable<AppState> => {
         const filename = this.electronService.remote.dialog.showSaveDialog({ filters: FILEFILTERS });
         if (filename === undefined) {
-            // dialog got canceled
+            // dialog got canceled, TODO: Handle! Currently throws an error
             return;
         }
 
@@ -65,7 +65,7 @@ export class LoadEffect {
     private openFile = (): Observable<AppState> => {
         const filenames = this.electronService.remote.dialog.showOpenDialog({ filters: FILEFILTERS });
         if (filenames === undefined) {
-            // dialog got canceled
+            // dialog got canceled, TODO: Handle! Currently throws an error
             return;
         }
 
