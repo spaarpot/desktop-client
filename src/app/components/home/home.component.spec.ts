@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home.component';
 import { HeaderComponent } from '../header/header.component';
 import { MainareaComponent } from '../mainarea/mainarea.component';
+import { DetailareaComponent } from '../detailarea/detailarea.component';
 import { SubmenuComponent } from '../submenu/submenu.component';
 import { StoreModule } from '@ngrx/store';
 import { CurrencyPipe } from '../../pipes/currency.pipe';
@@ -15,7 +16,7 @@ describe('HomeComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [HomeComponent, HeaderComponent, MainareaComponent, SubmenuComponent, CurrencyPipe],
+            declarations: [HomeComponent, HeaderComponent, MainareaComponent, DetailareaComponent, SubmenuComponent, CurrencyPipe],
             imports: [StoreModule.forRoot(reducers), FormsModule]
         })
         .compileComponents();

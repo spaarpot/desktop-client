@@ -7,6 +7,6 @@
         </div>
     </div>
     <app-submenu id="submenu" [accounts]="accounts" [categories]="categories" (onSelect)="onSidebarItemSelected($event)"></app-submenu>
-    <app-mainarea id="mainarea"></app-mainarea>
-    <div [ngClass]="{ 'detailsarea--open': isSidebarOpen }" class="detailsarea">Detailsarea</div>
+    <app-mainarea [transactions]="transactions" [selected]="selectedTransaction" (onSelect)="onTransactionSelected($event[0])" id="mainarea"></app-mainarea>
+    <app-detailarea [categories]="categories" [transaction]="selectedTransaction" [ngClass]="{ 'detailsarea--open': isSidebarOpen }" class="detailsarea"></app-detailarea>
 </div>

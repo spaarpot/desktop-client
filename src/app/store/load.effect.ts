@@ -11,7 +11,8 @@ import { readAppState, writeAppState } from './fileaccess';
 const initialState: AppState = {
     metadata: {},
     accounts: [],
-    categories: []
+    categories: [],
+    transactions: []
 };
 
 const FILEFILTERS = [{

@@ -11,13 +11,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let t of transactions">
+        <tr *ngFor="let t of transactionItems" [ngClass]="{ 'selected': t.isSelected }" (click)="onTransactionSelected(t)">
             <td>XXX</td>
-            <td>{{ t.creationDate | date:'shortDate' }}</td>
-            <td>{{ t.payee }}</td>
-            <td>{{ t.category }}</td>
-            <td class="col-main">{{ t.notes }}</td>
-            <td class="col-right">{{ t.amount | appCurrency }}</td>
+            <td>{{ t.transaction.creationDate | date:'shortDate' }}</td>
+            <td>{{ t.transaction.payee }}</td>
+            <td>{{ t.transaction.category }}</td>
+            <td class="col-main">{{ t.transaction.notes }}</td>
+            <td class="col-right">{{ t.transaction.amount | appCurrency }}</td>
             <td class="col-right">XXX</td>
         </tr>
     </tbody>

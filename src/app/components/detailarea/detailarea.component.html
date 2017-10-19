@@ -1,0 +1,34 @@
+<div *ngIf="transaction != null; else elseBlock">
+    <form>
+        <div class="form-group">
+            <input required type="number" [(ngModel)]="transaction.amount" name="amount" class="input-amount" (blur)="onCommitChanges(transaction)" />
+        </div>
+        <div class="form-group amount-buttons">
+            <a (click)="onSelectIncome()" [ngClass]="{ 'active': transaction.amount >= 0 }" class="amount-button income-button" role="button" (blur)="onCommitChanges(transaction)">Income</a>
+            <a (click)="onSelectExpense()" [ngClass]="{ 'active': transaction.amount < 0 }" class="amount-button expense-button" role="button" (blur)="onCommitChanges(transaction)">Expense</a>
+        </div>
+        <div class="form-group">
+            <input type="date" [(ngModel)]="transaction.creationDate" name="creationDate" (blur)="onCommitChanges(transaction)" />
+        </div>
+        <div class="form-group">
+            <input type="text" [(ngModel)]="transaction.payee" name="payee" placeholder="Payee" (blur)="onCommitChanges(transaction)" />
+        </div>
+        <div class="form-group">
+            <select [(ngModel)]="transaction.category" name="category" (blur)="onCommitChanges(transaction)">
+                <option *ngFor="let category of categories" [ngValue]="category.title">
+                    {{ category.title }}
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <textarea [(ngModel)]="transaction.notes" name="notes" rows="4" placeholder="Enter some notes" (blur)="onCommitChanges(transaction)">
+            </textarea>
+        </div>
+    </form>
+</div>
+<ng-template #elseBlock>
+    <div class="empty">
+        <div class="empty-main">No transaction selected</div>
+        <div class="empty-sub">First, create an account</div>
+    </div>
+</ng-template>
