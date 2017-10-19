@@ -19,6 +19,7 @@
         line-height: 32px;
         text-align: left;
         color: $text-color-default;
+        transition: all 0.25s ease-in-out;
     }
 
     th {
@@ -56,5 +57,10 @@
 
     .col-right {
         text-align: right;
+    }
+
+    .selected td {
+        color: $color-white;
+        background-color: $table-selected-color !important;
     }
 }

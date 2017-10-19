@@ -4,6 +4,7 @@ export interface AppState {
     metadata: Metadata;
     accounts: Account[];
     categories: Category[];
+    transactions: Transaction[];
 }
 
 export class Metadata {
@@ -50,4 +51,27 @@ export class SubmenuItem {
         this.item = item;
         this.isSelected = false;
     }
+}
+
+export class Transaction {
+    id: string;
+    creationDate: Date;
+    payee: string;
+    category: string;
+    notes: string;
+    amount: number;
+
+    constructor() {
+        this.id = generateUuid();
+        this.amount = 0;
+        this.payee = '';
+        this.category = '';
+        this.notes = '';
+        this.creationDate = new Date();
+    }
+}
+
+export class TransactionOverviewItem {
+    transaction: Transaction;
+    isSelected: boolean;
 }

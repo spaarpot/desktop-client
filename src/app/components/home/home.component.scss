@@ -70,13 +70,15 @@ $detail-sidebar-width: 300px;
 }
 
 .detailsarea {
-    transition: all 0.25s;
-    padding: 16px 0;
     grid-area: detailsarea;
-    background-color: $detailsbackground;
     border-left: 1px solid $shaded;
+    padding: 16px 0;
     width: 0;
+
+    overflow: hidden;
+    background-color: $detailsbackground;
     box-sizing: border-box;
+    transition: all 0.25s;
 
     &--open {
         width: $detail-sidebar-width;
