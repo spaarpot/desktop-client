@@ -1,5 +1,5 @@
 import { app, BrowserWindow, screen } from 'electron';
-import * as path from 'path';
+import installExtension, { REDUX_DEVTOOLS } from 'electron-devtools-installer';
 
 let win, serve;
 const args = process.argv.slice(1);
@@ -29,6 +29,9 @@ function createWindow() {
     // Open the DevTools.
     if (serve) {
         win.webContents.openDevTools();
+        installExtension([REDUX_DEVTOOLS]) // TODO Augury 'elgalmkoelokbchhkhacckoklkejnhcd'. Just showing an empty screen
+            .then((name) => console.log(`Added Extension:  ${name}`))
+            .catch((err) => console.log('An error occurred: ', err));
     }
 
     // Emitted when the window is closed.
