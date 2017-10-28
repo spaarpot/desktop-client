@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
-import { Account, AppState, Category, Transaction } from '../../store/model';
+import { Account, AppState, Category, Transaction, Classification, ClassificationType, SubmenuItem } from '../../store/model';
 import { Store } from '@ngrx/store';
 import * as account from '../../actions/account.actions';
 import * as category from '../../actions/category.actions';
@@ -26,6 +26,10 @@ export class HomeComponent implements OnInit, OnDestroy  {
     transactions$: Observable<Transaction[]>;
 
     transactions: Transaction[];
+
+    selectedAccount: Account = null;
+
+    selectedCategory: Category = null;
 
     selectedTransaction: Transaction = null;
 
@@ -58,23 +62,50 @@ export class HomeComponent implements OnInit, OnDestroy  {
         this.onTransactionSelected(t);
     }
 
+    /**
+     * Create a new empty transaction.
+     */
     createEmptyTransaction = () => {
         const t: Transaction = new Transaction();
         this.store.dispatch(new transaction.AddAction(t));
         return t;
     }
 
+    /**
+     * Toggle display of detail sidebar.
+     */
     openSidebar = () => {
         this.isSidebarOpen = true;
     }
 
+    /**
+     * Callback on Selection of transaction item.
+     */
     onTransactionSelected = (t: Transaction) => {
         this.selectedTransaction = t;
         this.openSidebar();
     }
 
-    onSidebarItemSelected = ({ type, item }: { type: string, item: Account }) => {
+    /**
+     * Callback on Selection of sidebar item.
+     */
+    onSidebarItemSelected = ({ type, item }: { type: ClassificationType, item: SubmenuItem }) => {
+        // TODO: ...
+
+        // reset selected items
+        this.resetSelectedSidebarItems();
+
+        if (type.title === 'Accounts') {
+            this.selectedAccount = item.item;
+        } else if (type.title === 'Categories') {
+            this.selectedCategory = item.item;
+        }
         console.log(type);
         console.log(item);
+    }
+
+    private resetSelectedSidebarItems = () => {
+        this.selectedAccount = null;
+        this.selectedCategory = null;
     }
 }
