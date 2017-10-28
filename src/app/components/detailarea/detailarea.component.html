@@ -21,6 +21,13 @@
             </select>
         </div>
         <div class="form-group">
+            <select [(ngModel)]="transaction.account" name="account" (blur)="onCommitChanges(transaction)">
+                <option *ngFor="let account of accounts" [ngValue]="account.title">
+                    {{ account.title }}
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
             <textarea [(ngModel)]="transaction.notes" name="notes" rows="4" placeholder="Enter some notes" (blur)="onCommitChanges(transaction)">
             </textarea>
         </div>

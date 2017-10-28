@@ -57,6 +57,7 @@ export class Transaction {
     id: string;
     creationDate: Date;
     payee: string;
+    account: string;
     category: string;
     notes: string;
     amount: number;
@@ -65,6 +66,7 @@ export class Transaction {
         this.id = generateUuid();
         this.amount = 0;
         this.payee = '';
+        this.account = '';
         this.category = '';
         this.notes = '';
         this.creationDate = new Date();

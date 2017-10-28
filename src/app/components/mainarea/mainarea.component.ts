@@ -1,5 +1,5 @@
 import { Component, DoCheck, SimpleChanges, Output, Input, EventEmitter } from '@angular/core';
-import { Transaction, TransactionOverviewItem } from '../../store/model';
+import { Account, Category, Transaction, TransactionOverviewItem } from '../../store/model';
 
 @Component({
     selector: 'app-mainarea',
@@ -20,6 +20,10 @@ export class MainareaComponent implements DoCheck {
      */
     @Input() selected: Transaction;
 
+    @Input() selectedAccount: Account;
+
+    @Input() selectedCategory: Category;
+
     /**
      * Converted list of transactions with additional display properties.
      */
@@ -33,6 +37,20 @@ export class MainareaComponent implements DoCheck {
                     transaction: t,
                     isSelected: false
                 };
+            });
+        }
+
+        // Filter transactions by account
+        if (this.selectedAccount != null) {
+            this.transactionItems = this.transactionItems.filter((t) => {
+                return t.transaction.account === this.selectedAccount.title; // TODO: Prob change to id
+            });
+        }
+
+        // Filter transactions by category
+        if (this.selectedCategory != null) {
+            this.transactionItems = this.transactionItems.filter((t) => {
+                return t.transaction.category === this.selectedCategory.title; // TODO: Prob change to id
             });
         }
 

@@ -22,6 +22,11 @@ export class DetailareaComponent {
     @Input() categories: Account[];
 
     /**
+     * List of all available accounts.
+     */
+    @Input() accounts: Account[];
+
+    /**
      * Transaction to edit.
      */
     @Input() transaction: Transaction;

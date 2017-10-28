@@ -13,6 +13,8 @@ import * as category from '../../actions/category.actions';
 export class SubmenuComponent implements OnInit, OnChanges {
     @Output() onSelect: EventEmitter<any> = new EventEmitter();
 
+    @Output() onDeselect: EventEmitter<any> = new EventEmitter();
+
     @Input() accounts: Account[];
 
     @Input() categories: Category[];
@@ -67,9 +69,13 @@ export class SubmenuComponent implements OnInit, OnChanges {
     onSelectType = (evt, type) => {
         this.selectType(type.title);
         this.currentType = type;
+        this.onDeselect.emit();
     };
 
-    onSelectItem = (evt, item) => {
+    /**
+     * Callback on Selection of sidebar item.
+     */
+    onSelectItem = (evt, item: SubmenuItem) => {
         this.items.forEach(it => { it.isSelected = it === item; });
         this.onSelect.emit({ type: this.currentType, item });
     };
