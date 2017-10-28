@@ -67,6 +67,15 @@ export class HomeComponent implements OnInit, OnDestroy  {
      */
     createEmptyTransaction = () => {
         const t: Transaction = new Transaction();
+
+        if (this.selectedAccount != null) {
+            t.account = this.selectedAccount.title;
+        }
+
+        if (this.selectedCategory != null) {
+            t.category = this.selectedCategory.title;
+        }
+
         this.store.dispatch(new transaction.AddAction(t));
         return t;
     }
