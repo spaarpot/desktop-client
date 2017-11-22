@@ -12,6 +12,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { MainareaComponent } from './components/mainarea/mainarea.component';
 import { DetailareaComponent } from './components/detailarea/detailarea.component';
 import { SubmenuComponent } from './components/submenu/submenu.component';
+import { MoneyComponent } from './components/money/money.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -31,6 +32,7 @@ import { environment } from 'environments';
         MainareaComponent,
         DetailareaComponent,
         SubmenuComponent,
+        MoneyComponent,
         CurrencyPipe,
         AutoFocusDirective
     ],

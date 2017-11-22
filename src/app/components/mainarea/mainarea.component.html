@@ -17,8 +17,16 @@
             <td>{{ t.transaction.payee }}</td>
             <td>{{ t.transaction.category }}</td>
             <td class="col-main">{{ t.transaction.notes }}</td>
-            <td class="col-right">{{ t.transaction.amount | appCurrency }}</td>
-            <td class="col-right">{{ t.runningBalance | appCurrency }}</td>
+            <td class="col-right">
+                <app-money number="{{ t.transaction.amount }}">
+                    {{ t.transaction.amount | appCurrency }}
+                </app-money>
+            </td>
+            <td class="col-right">
+                <app-money number="{{ t.runningBalance }}">
+                    {{ t.runningBalance | appCurrency }}
+                </app-money>
+            </td>
         </tr>
     </tbody>
 </table>
