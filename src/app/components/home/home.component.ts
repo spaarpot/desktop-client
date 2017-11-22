@@ -113,7 +113,7 @@ export class HomeComponent implements OnInit, OnDestroy  {
         console.log(item);
     }
 
-    private resetSelectedSidebarItems = () => {
+    resetSelectedSidebarItems = () => {
         this.selectedAccount = null;
         this.selectedCategory = null;
     }
