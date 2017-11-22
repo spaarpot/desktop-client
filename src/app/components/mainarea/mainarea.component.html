@@ -18,7 +18,7 @@
             <td>{{ t.transaction.category }}</td>
             <td class="col-main">{{ t.transaction.notes }}</td>
             <td class="col-right">{{ t.transaction.amount | appCurrency }}</td>
-            <td class="col-right">XXX</td>
+            <td class="col-right">{{ t.runningBalance | appCurrency }}</td>
         </tr>
     </tbody>
 </table>

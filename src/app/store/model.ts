@@ -75,5 +75,6 @@ export class Transaction {
 
 export class TransactionOverviewItem {
     transaction: Transaction;
+    runningBalance: number;
     isSelected: boolean;
 }
