@@ -19,6 +19,8 @@ import { ElectronService } from './providers/electron.service';
 import { CurrencyPipe } from './pipes/currency.pipe';
 import { AutoFocusDirective } from './directives/autofocus.directive';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'environments';
 
 @NgModule({
     declarations: [
@@ -36,7 +38,8 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
         BrowserModule,
         FormsModule,
         HttpModule,
-        AppRoutingModule
+        AppRoutingModule,
+        environment.production ? [] : StoreDevtoolsModule.instrument({ maxAge: 50 }),
     ],
     providers: [ElectronService],
     bootstrap: [AppComponent]
