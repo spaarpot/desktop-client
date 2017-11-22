@@ -35,6 +35,7 @@ export class MainareaComponent implements DoCheck {
             this.transactionItems = this.transactions.map((t) => {
                 return {
                     transaction: t,
+                    runningBalance: 0,
                     isSelected: false
                 };
             });
@@ -54,10 +55,20 @@ export class MainareaComponent implements DoCheck {
             });
         }
 
-        // Deselect all transactionItems and select current one
+        // Sort by date
+        this.transactionItems = this.transactionItems.sort(this.sortTransactionByDate);
+
+        // Deselect all transactionItems and select current one;
+        // Recalculate running balance
+        let runningBalance = 0;
         this.transactionItems.forEach((item) => {
+            runningBalance += item.transaction.amount;
+            item.runningBalance = runningBalance;
             item.isSelected = (item.transaction === this.selected);
         });
+
+        // Reverse for display
+        this.transactionItems = this.transactionItems.reverse();
     }
 
     /**
@@ -65,5 +76,23 @@ export class MainareaComponent implements DoCheck {
      */
     onTransactionSelected = (t: TransactionOverviewItem) => {
         this.onSelect.emit([t.transaction]);
+    }
+
+    private sortTransactionByDate = (a: TransactionOverviewItem, b: TransactionOverviewItem): number => {
+        if (a.transaction.creationDate < b.transaction.creationDate) {
+            return -1;
+        }
+
+        if (a.transaction.creationDate > b.transaction.creationDate) {
+            return 1;
+        }
+
+        return 0;
+    }
+
+    private inverseSort = (sortFn) => {
+        return (a, b) => {
+            return sortFn(a, b) * -1;
+        };
     }
 }
