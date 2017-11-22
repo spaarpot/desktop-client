@@ -6,6 +6,7 @@ import { HeaderComponent } from '../header/header.component';
 import { MainareaComponent } from '../mainarea/mainarea.component';
 import { DetailareaComponent } from '../detailarea/detailarea.component';
 import { SubmenuComponent } from '../submenu/submenu.component';
+import { MoneyComponent } from '../money/money.component';
 import { StoreModule } from '@ngrx/store';
 import { CurrencyPipe } from '../../pipes/currency.pipe';
 import { reducers } from '../../reducers';
@@ -16,7 +17,15 @@ describe('HomeComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [HomeComponent, HeaderComponent, MainareaComponent, DetailareaComponent, SubmenuComponent, CurrencyPipe],
+            declarations: [
+                HomeComponent,
+                HeaderComponent,
+                MainareaComponent,
+                DetailareaComponent,
+                SubmenuComponent,
+                MoneyComponent,
+                CurrencyPipe
+            ],
             imports: [StoreModule.forRoot(reducers), FormsModule]
         })
         .compileComponents();
