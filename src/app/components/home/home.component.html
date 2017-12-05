@@ -10,7 +10,7 @@
         [accounts]="accounts"
         [categories]="categories"
         (onSelect)="onSidebarItemSelected($event)"
-        (onDeselect)="resetSelectedSidebarItems($event)">
+        (onDeselect)="resetSelectedSidebarItems()">
     </app-submenu>
     <app-mainarea id="mainarea"
         [transactions]="transactions"
