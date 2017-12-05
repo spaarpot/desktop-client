@@ -16,4 +16,5 @@ export class NewFile implements Action {
 
 export class OpenFile implements Action {
     readonly type = OPEN_FILE;
+    constructor(public file: string = null) {}
 }

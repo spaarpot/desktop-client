@@ -35,8 +35,8 @@ export class LoadEffect {
     @Effect()
     private openFile$ = this.actions$
         .ofType(fromAppActions.OPEN_FILE)
-        .exhaustMap(() =>
-            this.openFile()
+        .exhaustMap((...args) =>
+            this.openFile(...args)
                 .map(appstate => (new fromAppActions.FileLoaded(appstate)))
                 .catch(error => Observable.of({ type: '[Application] FILE_LOADED_ERROR', payload: error }))
         );
@@ -63,13 +63,30 @@ export class LoadEffect {
             .switchMap(() => readAppState(filename));
     };
 
-    private openFile = (): Observable<AppState> => {
+    private openFile = (...rest): Observable<AppState> => {
+        const [ openFileAction ] = rest as any;
+        console.log(openFileAction);
+
+        let fileToOpen: string;
+        if (!!openFileAction && !!openFileAction.file) {
+            fileToOpen = openFileAction.file;
+        } else {
+            fileToOpen = this.getFileNameFromDialog();
+        }
+
+        if (!!fileToOpen) {
+            this.electronService.recordOpenFile(fileToOpen);
+            return readAppState(fileToOpen);
+        }
+    };
+
+    private getFileNameFromDialog = () => {
         const filenames = this.electronService.remote.dialog.showOpenDialog({ filters: FILEFILTERS });
         if (filenames === undefined) {
             // dialog got canceled, TODO: Handle! Currently throws an error
-            return;
+            return null;
         }
 
-        return readAppState(filenames[0]);
-    };
+        return filenames[0];
+    }
 }

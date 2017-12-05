@@ -50,3 +50,34 @@
 .btn + .btn {
     border-top: 1px solid $text-color-dark;
 }
+
+.recent {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &__item {
+        border-top: 1px dashed $text-color-dark;
+    }
+
+    &__item:last-child {
+        border-bottom: 1px dashed $text-color-dark;
+    }
+
+    &__link {
+        cursor: pointer;
+        display: block;
+        padding: 8px 0;
+    }
+
+    &__link:hover {
+        font-weight: bold;
+        padding-left: 8px;
+    }
+
+    &__path {
+        font-weight: normal;
+        font-size: 10px;
+        color: $text-color-muted;
+    }
+}

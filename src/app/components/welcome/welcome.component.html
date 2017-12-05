@@ -9,6 +9,14 @@
         <div class="btn-wrapper">
             <a (click)="newFile()" class="btn">New File</a>
             <a (click)="openFile()" class="btn">Open File</a>
+            <ul class="recent">
+                <li *ngFor="let recent of recentFiles" class="recent__item">
+                    <a class="recent__link" (click)="openRecent(recent)">
+                        {{ recent.fileName }}
+                        <span class="recent__path">{{ recent.filePath }}</span>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
